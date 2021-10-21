@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Searchify</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/style.css') }}">
+</head>
+<body>
+  <div id="particles-js"></div>
+    <script type="text/javascript" src="{{url_for('static',filename='js/particles.js') }}"></script>
+    <script type="text/javascript" src="{{url_for('static',filename='js/app.js') }}"></script>
+    <!-- <a class="active" href="{{url}}">Home</a> -->
+    <div class="search_name">
+      <h1>Searchify</h1>
+    </div>
+    <div class="searchbar">
+      <form action = "{{url}}/search" method = "POST">
+        <input
+          type="text"
+          class="header-search"
+          placeholder="Search Any Question"
+          name="search"
+        />
+        <button class="btnsubmit" type="submit">Search</button>
+      </form>
+      <br>
+      {% for error in errors %}
+        <h4>{{ error }}</h4>
+      {% endfor %}
+    </div>
+</body>
+</html>
